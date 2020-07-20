@@ -13,11 +13,16 @@ local widgetInfo = DockWidgetPluginGuiInfo.new(
 )
 
 local widget = plugin:CreateDockWidgetPluginGui("Locksmith", widgetInfo)
-widget.Title = "Test Widget" 
+widget.Title = "Locksmith" 
 
 
 local root = script.Parent.Parent
 local pluginFrame = root.PluginFrame
-local pages = {Buttons = pluginFrame.Buttons, GameScan = pluginFrame.Scan}
 
+local pages = require(script.Parent.pages)
+
+pages.Init({Buttons = pluginFrame.Buttons, Scan = pluginFrame.Scan}, "Buttons")
+
+print( pages.GetPageByName("Buttons") )
 pluginFrame.Parent = widget
+wait(1)
