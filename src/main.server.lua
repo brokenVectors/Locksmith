@@ -28,18 +28,20 @@ pluginFrame.Parent = widget
 
 
 
-buttons.ScanGame.MouseButton1Down:Connect(function()
-    pages.Open("ScanGame")
-end)
+for page, button in pairs(buttons) do
+    button.MouseButton1Down:Connect(function()
+        pages.Open(page)
+    end)
+end
 
-buttons.ScanPlugins.MouseButton1Down:Connect(function()
-    pages.Open("ScanPlugins")
-end)
 
-pageList.ScanGame.BackBtn.MouseButton1Down:Connect(function()
-    pages.Open("Buttons")
-end)
+for _,page in pairs(pageList) do
+    local backBtn = page:FindFirstChild('BackBtn')
 
-pageList.ScanPlugins.BackBtn.MouseButton1Down:Connect(function()
-    pages.Open("Buttons")
-end)
+    if backBtn then
+        backBtn.MouseButton1Down:Connect(function()
+            pages.Open("Buttons")
+        end)
+    end
+    
+end
