@@ -17,6 +17,7 @@ widget.Title = "Locksmith"
 
 
 local root = script.Parent.Parent
+local suspectBtn = root.SuspectBtn
 local pluginFrame = root.PluginFrame
 local isBackdoor = require(script.Parent.isBackdoor)
 
@@ -50,13 +51,27 @@ end
 pageList.ScanGame.ScanBtn.MouseButton1Down:Connect(function()
     print('Scanning...')
 
+
+
+    for _,v in ipairs(pageList.ScanGame.ScrollingFrame:GetChildren()) do
+        if not v:IsA('UILayout') then
+            v:Destroy()
+        end
+    end
     for _, scr in ipairs(game:GetDescendants()) do
         pcall(function()
 
             local percentage = isBackdoor(scr)
 
             if percentage > 0 then
-                print(scr.Name, isBackdoor(scr))
+                local button = suspectBtn:Clone()
+
+                button.Text = string.format('%s(%s)', scr:GetFullName(), percentage)
+                button.Parent = pageList.ScanGame.ScrollingFrame
+
+                button.MouseButton1Down:Connect(function()
+                    game.Selection:Set({scr})
+                end)
             end
            
         end)
