@@ -3,6 +3,7 @@ local currentPage
 
 
 
+
 function pages.GetPageByName(pageName)
     if type(pageName) ~= "string" then
         error('Page name must be a string')
