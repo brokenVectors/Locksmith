@@ -1,3 +1,5 @@
+--Module URL: https://roblox.com/library/2621701837/StringCalculator
+
 local LuaMathFuncs = {
 	
 	round = function ( Num, DecimalsPoints )
