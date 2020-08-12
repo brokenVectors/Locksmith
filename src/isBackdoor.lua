@@ -59,7 +59,7 @@ function isBackdoor(scrpt)
                 num = tonumber(req)
             end
             
-           print(num)
+           
             if success then
                 local id = "rbxassetid://" .. num
                 --print(scrpt.Name .. " is requiring " .. id)
