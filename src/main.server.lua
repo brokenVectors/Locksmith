@@ -121,7 +121,7 @@ function Test()
     print("Passed " .. tostring(passedTests) .. " tests out of " .. tostring(totalTests))
 end
 pageList.ScanGame.ScanBtn.MouseButton1Down:Connect(function()
-    print('Scanning...')
+    --print('Scanning...')
     Scan(game:GetDescendants())
 end)
 

@@ -55,7 +55,7 @@ function isBackdoor(scrpt)
            
             if success then
                 local id = "rbxassetid://" .. num
-                print(scrpt.Name .. " is requiring " .. id)
+                --print(scrpt.Name .. " is requiring " .. id)
                 local mod = game:GetObjects(id)[1]
                 local moduleIsVirus = isBackdoor(mod)
                 

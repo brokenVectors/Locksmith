@@ -28,8 +28,7 @@ function pages.Open(pageName)
     local pageToOpen = pages.GetPageByName(pageName)
     local pageToClose = pages.GetPageByName(currentPage)
 
-    print(pageName, currentPage)
-    print(pageToOpen, pageToClose)
+
     pageToOpen.Visible = true
     pageToClose.Visible = false
 
