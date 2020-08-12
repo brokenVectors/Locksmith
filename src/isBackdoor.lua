@@ -24,9 +24,11 @@ local nameFlags = {
     This module is useful for evaluating expressions, example: "2+2" would return 4, and "5+5" would return 10.
     This is mainly used to find what module IDs are required by scripts, since they sometimes do stuff like 18737263*4 just to get around basic string matching I believe.
     I might copy it as my own model eventually, since who knows what the module owner will do with it.
-]]
-local calcModule = require(2621701837)
 
+    Someone told me that it would be better to include the module inside of the repo instead, so I did that.
+]]
+-- local calcModule = require(2621701837)
+local calcModule = require(script.Parent.stringCalculator)
 
 
 function isBackdoor(scrpt)
