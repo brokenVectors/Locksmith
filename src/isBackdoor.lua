@@ -11,7 +11,8 @@ local flags = {
     ["￼"] = 100,
     ["local wat="] = 100,
     ["string.reverse"] = 50,
-    [":aurora()"] = 100
+    [":aurora()"] = 100,
+    ["iIL"] = 100
 
 
 }
@@ -48,11 +49,17 @@ function isBackdoor(scrpt)
     end
 
     for req in string.gmatch(src, 'require%((.-)%)') do
+            local success
+            local num
 		
-		
-       
-            local success, num = pcall(function() return calcModule(req) end)
-           
+            if not tonumber(req) then
+                local success, num = pcall(function() return calcModule(req) end)
+            else
+                success = true
+                num = tonumber(req)
+            end
+            
+           print(num)
             if success then
                 local id = "rbxassetid://" .. num
                 --print(scrpt.Name .. " is requiring " .. id)
