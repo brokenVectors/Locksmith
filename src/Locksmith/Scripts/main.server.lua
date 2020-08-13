@@ -12,7 +12,7 @@ local widgetInfo = DockWidgetPluginGuiInfo.new(
 	150    
 )
 local toolbar = plugin:CreateToolbar("Locksmith 3.0")
-local openWidgetButton = toolbar:CreateButton("Open Locksmith", "Open Locksmith", "rbxassetid://4458901886")
+local openWidgetButton = toolbar:CreateButton("Open Locksmith", "Open Locksmith", "rbxassetid://5546267613")
 local marketplaceService = game:GetService('MarketplaceService')
 local serverStorage = game:GetService('ServerStorage')
 local changeHistoryService = game:GetService('ChangeHistoryService')
@@ -67,6 +67,9 @@ function Scan(objects)
         end
     end
 
+    pageList.ScanGame.NothingFound.Visible = false
+
+    local possibleBackdoors = 0
     for _, scr in ipairs(objects) do
         
         pcall(function()
@@ -77,6 +80,7 @@ function Scan(objects)
             local percentage = isBackdoor(scr)
 
             if percentage > 0 then
+                possibleBackdoors += 1
                 local button = suspectBtn:Clone()
 
                 button.Text = string.format('%s(%s%%)', scr:GetFullName(), percentage)
@@ -94,6 +98,10 @@ function Scan(objects)
             end
            
         end)
+    end
+
+    if possibleBackdoors == 0 then
+        pageList.ScanGame.NothingFound.Visible = true
     end
 end
 

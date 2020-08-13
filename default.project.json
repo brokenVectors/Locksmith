@@ -8,38 +8,10 @@
         "HttpEnabled": true
       }
     },
-    "Lighting": {
-      "$className": "Lighting",
-      "$properties": {
-        "Outlines": false,
-        "Technology": "Voxel",
-        "Ambient": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "GlobalShadows": true,
-        "Brightness": 2.0
-      }
-    },
-    "ReplicatedStorage": {
-      "$className": "ReplicatedStorage"
-    },
     "ServerScriptService": {
       "$className": "ServerScriptService",
-      "Locksmith": {
-        "$className": "Folder",
-        "Scripts" : {
-          "$path": "src"
-        }
-      }
-      
-    },
-    "SoundService": {
-      "$className": "SoundService",
-      "$properties": {
-        "RespectFilteringEnabled": true
-      }
+      "$ignoreUnknownInstances": true,
+      "$path": "src"
     }
   }
 }
