@@ -121,7 +121,7 @@ function ToNumber( Nums, LocalFuncs, Attempt )
 		if Nums[ a ] == "%" and type( Nums[ a - 1 ] ) == "number" and type( Nums[ a + 1 ] ) == "number" then
 			Nums[ a - 1 ] = Nums[ a - 1 ] % Nums[ a + 1 ]
 			table.remove( Nums, a )
-			table.remove( Nums, a
+			table.remove( Nums, a )
 		else
 			a = a + 1
 		end
