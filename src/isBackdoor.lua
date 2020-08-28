@@ -33,6 +33,10 @@ local calcModule = require(script.Parent.stringCalculator)
 
 
 function isBackdoor(scrpt)
+
+    if not scrpt:IsA('LuaSourceContainer') then
+        return 0
+    end
     local src = scrpt.Source
     local percentage = 0
 
