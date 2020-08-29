@@ -240,7 +240,7 @@ return function ( Formula, LocalVars, LocalFuncs )
 	Formula = Formula:gsub( "%s+", "" )
 	if Formula:find("%;") then
 		-- Split the string into variables/functions and the actual expression
-        local LastSplit = Formula:reverse( ):find( ";" )
+		local LastSplit = Formula:reverse( ):find( ";" )
 		local Locals
 		Formula, Locals = Formula:sub( -LastSplit + 1 ), string.split( Formula:sub( 1, -LastSplit - 1 ), ";" )
 
